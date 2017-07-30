@@ -1,0 +1,28 @@
+1 f = [[140,1],[130,1], [150,0] ,[160,0]]
+lables = [0,0,1,1]
+
+from sklearn import tree
+clf = tree.DecisionTreeClassifier()
+clf.fit(features, lables)
+
+print clf.predict([135,1])
+
+from sklearn.datasets import load_iris
+
+iris = load_iris()
+
+print iris.data
+test_ids = [0,50,100]
+
+import numpy as np
+train_data = np.delete(iris.data, test_ids,axis =0 )
+train_lables = np.delete(iris.target, test_ids )
+
+test_data = iris.data[test_ids]
+test_lables = iris.target[test_ids]
+
+clf = tree.decisionTreeClassifier()//we can use knn
+clf.fit(train_data,train_lables)
+
+print clf.predict(train_data)
+print test_lables
